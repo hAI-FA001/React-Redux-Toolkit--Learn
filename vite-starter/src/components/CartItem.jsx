@@ -17,11 +17,15 @@ const CartItem = ({ id, img, title, price, amount }) => {
           </div>
           <div>
               <button type="button" className="amount-btn" onClick={(e) => {
-                  dispatch(increase({ id: id }))
+                  dispatch(increase({ id }))
               }}><ChevronUp /></button>
               <p className="amount">{amount}</p>
               <button type="button" className="amount-btn" onClick={(e) => {
-                  dispatch(decrease({ id: id }))
+                  if (amount === 1) {
+                      dispatch(removeItem(id))
+                      return
+                  }
+                  dispatch(decrease({ id }))
               }}><ChevronDown /></button>
           </div>
     </article>
