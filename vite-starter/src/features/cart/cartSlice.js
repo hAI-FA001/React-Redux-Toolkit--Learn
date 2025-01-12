@@ -15,6 +15,13 @@ const cartSlice = createSlice({
         clearCart: (state) => {
             // state.cartItems = []  // can mutate directly thanks to Immer
             return {...state, cartItems: []}  // don't do: return { cartItems: [] }
+        },
+
+        removeItem: (state, action) => {
+            console.log(action)
+
+            const itemID = action.payload
+            state.cartItems = state.cartItems.filter((it) => it.id !== itemID)
         }
     }
 })
@@ -22,4 +29,4 @@ const cartSlice = createSlice({
 console.log(cartSlice)
 
 export default cartSlice.reducer
-export const { clearCart } = cartSlice.actions
+export const { clearCart, removeItem } = cartSlice.actions
