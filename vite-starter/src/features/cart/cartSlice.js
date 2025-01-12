@@ -13,7 +13,8 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         clearCart: (state) => {
-            state.cartItems = []  // can mutate directly thanks to Immer
+            // state.cartItems = []  // can mutate directly thanks to Immer
+            return {...state, cartItems: []}  // don't do: return { cartItems: [] }
         }
     }
 })
