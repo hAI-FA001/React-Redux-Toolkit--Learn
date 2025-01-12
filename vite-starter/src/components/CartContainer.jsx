@@ -21,7 +21,7 @@ const CartContainer = () => {
           </div>
           <footer>
               <hr />
-              <div className="cart-total"><h4>Total <span >${total}</span></h4></div>
+              <div className="cart-total"><h4>Total <span >${total.toFixed(2)}</span></h4></div>
               <button type='button' className="btn clear-btn" onClick={(e) => {
                   dispatch(clearCart())
               }}>clear cart</button>
